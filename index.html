@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Local Memo Server</title>
+    <script>
+      window.onload = () => {
+        const item = localStorage.getItem("content");
+        if (item) {
+          document.body.innerHTML = item;
+        }
+        document.addEventListener("keydown", (e) => {
+          localStorage.setItem("content", document.body.innerHTML);
+        });
+      };
+    </script>
+  </head>
+  <body
+    contenteditable=""
+    style="font-family: system-ui; background-color: dimgrey; color: white"></body>
+</html>
