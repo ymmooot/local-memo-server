@@ -1,6 +1,15 @@
 package main
 
-import "net/http"
+import (
+	_ "embed"
+	"net/http"
+)
+
+//go:embed index.html
+var indexHTML string
+
+//go:embed favicon.ico
+var favicon []byte
 
 func main() {
 	http.HandleFunc("/", rootHandler)
@@ -9,9 +18,11 @@ func main() {
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "index.html")
+	w.Header().Set("Content-Type", "text/html")
+	w.Write([]byte(indexHTML))
 }
 
 func faviconHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "favicon.ico")
+	w.Header().Set("Content-Type", "image/x-icon")
+	w.Write(favicon)
 }
