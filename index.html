@@ -3,10 +3,12 @@
     <title>Local Memo Server</title>
     <script>
       window.onload = () => {
-        const item = localStorage.getItem("content");
-        if (item) {
-          document.body.innerHTML = item;
-        }
+        document.body.innerHTML = localStorage.getItem("content") || "";
+
+        setTimeout(() => {
+          document.body.focus();
+        }, 300);
+
         document.addEventListener("keydown", (e) => {
           localStorage.setItem("content", document.body.innerHTML);
         });
