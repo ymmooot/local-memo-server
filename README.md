@@ -4,8 +4,11 @@ Run build script:
 go build -o ./dist/memo-server ./main.go
 ```
 
-- Open your mac setting and go `Login Items`.
-- Click `+` and add the `memo-server` binary file.
+Create `memo.plist` file in `~/Library/LaunchAgents/` directory.
+
+```sh 
+launchctl load ~/Library/LaunchAgents/memo.plist
+```
 
 Now, the server will start automatically when you log in to your mac.  
 You should bookmark the server URL in your browser.
