@@ -1,4 +1,14 @@
-Run build script:
+This is a simple note-taking page built with Go.  
+It allows you to save and automatically restore your notes, even after closing and reopening the browser tab.
+
+## Features
+
+This app saves your notes to the browser's local storage.  
+So, you can not access your notes from another browser or device.
+
+## Setup
+
+Build:
 
 ```sh
 go build -o ./dist/memo-server ./main.go
